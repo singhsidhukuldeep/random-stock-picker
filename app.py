@@ -11,12 +11,13 @@ hide_menu_style = """
         </style>
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
-option = st.selectbox("Stock exchange: ", tuple(["NSE (India)"]))
+option = st.selectbox("Stock exchange: ", tuple(["NSE (🇮🇳)"]))
 refresh_btn = st.button("Pick another Random Stock", key="refresher1")
 refresh_btn = True
 while refresh_btn:
     random_result = select_one_ranom_stock()
-    st.metric(label=random_result["name"], value=random_result["symbol"])
+    st.metric(label=f'{random_result["name"]}', value=random_result["symbol"])
+    st.write('Get more details on Google')
     refresh_btn = False
 
     with st.expander(f"More details about the {random_result['symbol']} stock:"):
@@ -143,6 +144,13 @@ while refresh_btn:
 
 
 refresh_btn = st.button("Pick another Random Stock", key="refresher2")
+
+st.markdown("""---""")
+
+st.write(""" 👉
+Buy your own stocks from 
+[Groww](https://groww.app.link/refe/kuldeep8939658), [IndMoney](https://indmoney.onelink.me/RmHC/81a4b732), [Zerodha](https://zerodha.com/?c=NO1458)
+""")
 
 st.markdown("""---""")
 
