@@ -2,9 +2,15 @@ import streamlit as st
 import streamlit.components.v1 as components
 from utils import select_one_ranom_stock
 
+
 st.set_page_config(layout="wide")
 st.title("Random Stock Picker")
-
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 option = st.selectbox("Stock exchange: ", tuple(["NSE (India)"]))
 refresh_btn = st.button("Pick another Random Stock", key="refresher1")
 refresh_btn = True
@@ -16,7 +22,7 @@ while refresh_btn:
     with st.expander(f"More details about the {random_result['symbol']} stock:"):
 
         try:
-            st.write("### Stick Info")
+            st.write("### Stock Info")
             components.html(
                 """
             <!-- TradingView Widget BEGIN -->
