@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 from utils import select_one_ranom_stock
 
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_title="Random Stock Picker")
 st.title("Random Stock Picker")
 hide_menu_style = """
         <style>
@@ -22,29 +22,6 @@ while refresh_btn:
     with st.expander(f"More details about the {random_result['symbol']} stock:"):
 
         try:
-            st.write("### Stock Info")
-            components.html(
-                """
-            <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/NSE-$$symbol$$/" rel="noopener" target="_blank"><span class="blue-text">$$symbol$$ Price Today</span></a> by TradingView</div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
-  {
-  "symbol": "NSE:$$symbol$$",
-  "width": "100%",
-  "locale": "in",
-  "colorTheme": "dark",
-  "isTransparent": false
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
-            """.replace(
-                    "$$symbol$$", random_result["symbol"]
-                ),
-                height=200,
-            )
 
             st.write("### Company Profile")
             components.html(
