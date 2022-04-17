@@ -99,7 +99,7 @@ def show_random_stocks(st, components):
                     "$$symbol$$", random_result["symbol"]
                 ),
                 height=450,
-                scrolling=True
+                scrolling=True,
             )
 
         except Exception as exp:

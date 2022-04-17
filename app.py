@@ -1,6 +1,5 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from utils import select_one_ranom_stock
 import nse
 import configurations as config
 
@@ -42,7 +41,7 @@ while refresh_btn:
     if stock_exchange_option == config.stock_exchanges["NSE"].get("display"):
         nse.show_random_stocks(st, components)
     elif stock_exchange_option == config.stock_exchanges["NASDAQ"].get("display"):
-        st.write("Coming soon...")
+        st.write(f'{config.stock_exchanges["NASDAQ"].get("display")} Coming soon...')
     pass
 
 

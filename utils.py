@@ -1,3 +1,4 @@
+from operator import imod
 import random
 import json
 
