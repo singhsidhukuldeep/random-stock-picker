@@ -1,5 +1,5 @@
 from utils import select_one_ranom_stock
-import config
+import configurations as config
 
 
 def show_random_stocks(st, components):

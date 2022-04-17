@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 from utils import select_one_ranom_stock
 import nse
-import config
+import configurations as config
 
 st.set_page_config(layout="wide", page_title="Random Stock Picker")
 
@@ -54,6 +54,13 @@ st.info(
     """ 
         👉 Buy your own stocks from 
         [Groww](https://groww.app.link/refe/kuldeep8939658), [IndMoney](https://indmoney.onelink.me/RmHC/81a4b732), [Zerodha](https://zerodha.com/?c=NO1458)
+    """
+)
+
+st.success(
+    """
+        Share this page: 
+        https://share.streamlit.io/singhsidhukuldeep/random-stock-picker/main/app.py
     """
 )
 
