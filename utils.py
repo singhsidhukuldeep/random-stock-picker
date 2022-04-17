@@ -1,16 +1,15 @@
 import random
 import json
-from config import *
 
 
-def load_stock_list():
+def load_stock_list(stock_list_json):
     with open(stock_list_json) as f:
         data = json.load(f)
     return data
 
 
-def select_one_ranom_stock():
-    return random.choice(load_stock_list())
+def select_one_ranom_stock(data=""):
+    return random.choice(load_stock_list(data))
 
 
 def stock_selector(stock_list=[], random_size=25):
