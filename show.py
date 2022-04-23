@@ -1,7 +1,7 @@
-from utils import select_one_ranom_stock
+from utils import select_one_ranom_stock, select_list_of_ranom_stock
 import configurations as config
 import os.path
-
+import time
 
 def show_exchange(st, components, exchange):
     if os.path.isfile(config.stock_exchanges[exchange].get("data")):
@@ -12,14 +12,27 @@ def show_exchange(st, components, exchange):
 
 def show_random_stocks(st, components, exchange):
 
-    random_result = select_one_ranom_stock(config.stock_exchanges[exchange]["data"])
+    if config.show_single_stock:
+        random_result = select_one_ranom_stock(config.stock_exchanges[exchange]["data"])
+        st.metric(
+            label=f'{random_result["name"]}',
+            value=random_result["symbol"],
+            delta=config.stock_exchanges[exchange]["display"],
+            delta_color="off",
+        )
+    else:
+        random_list_result=select_list_of_ranom_stock(config.stock_exchanges[exchange]["data"])
+        temp = st.empty()
+        for random_result in random_list_result:
+            time.sleep(config.sleep_time_for_sample_role)
+            temp.metric(
+            label=f'{random_result["name"]}',
+            value=random_result["symbol"],
+            delta=config.stock_exchanges[exchange]["display"],
+            delta_color="off",
+        )
 
-    st.metric(
-        label=f'{random_result["name"]}',
-        value=random_result["symbol"],
-        delta=config.stock_exchanges[exchange]["display"],
-        delta_color="off",
-    )
+    
 
     with st.expander(f"More details about the {random_result['symbol']} stock:"):
 

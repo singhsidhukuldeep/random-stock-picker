@@ -18,3 +18,9 @@ stock_exchanges = {
 display_2_exchange = {
     details.get("display"): exchange for exchange, details in stock_exchanges.items()
 }
+
+show_single_stock=False
+
+sleep_time_for_sample_role = 0.001
+
+random_stocks_sampled=200
