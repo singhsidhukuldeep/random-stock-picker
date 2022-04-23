@@ -2,7 +2,7 @@
 # https://www.nseindia.com/regulations/listing-compliance/nse-market-capitalisation-all-companies
 
 in_link = "MCAP31032022.xlsx"
-out_link = "stocks_data.json"
+out_link = "NSE.json"
 import pandas as pd
 
 df = pd.read_excel(in_link).dropna()

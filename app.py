@@ -1,7 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import nse
+from show import show_exchange
 import configurations as config
+
 
 st.set_page_config(layout="wide", page_title="Random Stock Picker")
 
@@ -38,12 +39,8 @@ refresh_btn = st.button("Pick another Random Stock", key="refresher1")
 refresh_btn = True
 while refresh_btn:
     refresh_btn = False
-    if stock_exchange_option == config.stock_exchanges["NSE"].get("display"):
-        nse.show_random_stocks(st, components)
-    elif stock_exchange_option == config.stock_exchanges["NASDAQ"].get("display"):
-        st.write(f'{config.stock_exchanges["NASDAQ"].get("display")} Coming soon...')
-    pass
-
+    exchange = config.display_2_exchange.get(stock_exchange_option)
+    show_exchange(st, components, exchange)
 
 refresh_btn = st.button("Pick another Random Stock", key="refresher2")
 
