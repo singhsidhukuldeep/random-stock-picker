@@ -10,9 +10,33 @@ stock_exchanges = {
             tickertape_fundamental_data,
         ],
     },
-    "BSE": {"display": "BSE (🇮🇳)", "data": "data/BSE.json"},
-    "NASDAQ": {"display": "NASDAQ (🇺🇸)", "data": "data/NASDAQ.json"},
-    "NYSE": {"display": "NYSE (🇺🇸)", "data": "data/NYSE.json"},
+    "BSE": {
+        "display": "BSE (🇮🇳)",
+        "data": "data/BSE.json",
+        "information_display": [
+            tickertape_company_profile,
+            tickertape_technical_analysis,
+            tickertape_fundamental_data,
+        ],
+    },
+    "NASDAQ": {
+        "display": "NASDAQ (🇺🇸)",
+        "data": "data/NASDAQ.json",
+        "information_display": [
+            tickertape_company_profile,
+            tickertape_technical_analysis,
+            tickertape_fundamental_data,
+        ],
+    },
+    "NYSE": {
+        "display": "NYSE (🇺🇸)",
+        "data": "data/NYSE.json",
+        "information_display": [
+            tickertape_company_profile,
+            tickertape_technical_analysis,
+            tickertape_fundamental_data,
+        ],
+    },
 }
 
 display_2_exchange = {
@@ -21,6 +45,6 @@ display_2_exchange = {
 
 show_single_stock = False
 
-sleep_time_for_sample_role = 0.001
+sleep_time_for_sample_role = 0.02
 
-random_stocks_sampled = 200
+random_stocks_sampled = 25
